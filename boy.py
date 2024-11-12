@@ -1,4 +1,5 @@
 # 이것은 각 상태들을 객체로 구현한 것임.
+import sys
 
 from pico2d import get_time, load_image, SDL_KEYDOWN, SDL_KEYUP, SDLK_SPACE, SDLK_LEFT, SDLK_RIGHT, load_font, \
     draw_rectangle
@@ -175,4 +176,6 @@ class Boy:
             self.ball_count += 1
             # boy가 ball을 제거하는 것도 가능함
             # game_world.remove_object(other) # other로 ball이 넘어놈
+        if group == 'boy:zombie':
+            sys.exit()
         pass
