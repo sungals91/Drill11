@@ -69,7 +69,7 @@ class Zombie:
         if self.hit_count == 0:
             return self.x - 60, self.y - 100, self.x + 65, self.y + 80
         elif self.hit_count == 1:
-            return self.x - 30, self.y - 50, self.x + 32, self.y + 40
+            return self.x - 45, self.y - 65, self.x + 45, self.y + 55
         else:
             return 0,0,0,0
 
@@ -77,6 +77,6 @@ class Zombie:
         if group == 'zombie:ball':
             self.hit_count += 1
             if self.hit_count == 1:
-                self.width, self.height, self.y = self.width / 2, self.height / 2, self.y - 50
+                self.width, self.height, self.y = self.width / math.sqrt(2), self.height / math.sqrt(2), self.y - 35
             if self.hit_count == 2:
                 game_world.remove_object(self)
