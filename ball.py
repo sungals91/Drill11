@@ -9,9 +9,11 @@ class Ball:
         if Ball.image == None:
             Ball.image = load_image('ball21x21.png')
         self.x, self.y, self.velocity = x, y, velocity
+        #self.font = load_font('ENCR10B.TTF', 16)
 
     def draw(self):
         self.image.draw(self.x, self.y)
+        #self.font.draw(self.x - 10, self.y + 20, f'{self.is_flying}', (255, 255, 0))
         draw_rectangle(*self.get_bb())
 
     def update(self):
@@ -25,6 +27,8 @@ class Ball:
         return self.x - 10, self.y - 10, self.x + 10, self.y + 10
 
     def handle_collision(self, group, other):
-        # fill here
-        if group == 'boy:ball':
+        if group == 'zombie:ball':
             game_world.remove_object(self)
+        elif group == 'boy:ball':
+            game_world.remove_object(self)
+

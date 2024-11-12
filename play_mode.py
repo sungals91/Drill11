@@ -47,7 +47,10 @@ def init():
 
     # zombie 생성
     zombies = [Zombie() for _ in range(5)]
-    game_world.add_objects(zombies)
+    game_world.add_objects(zombies, 1)
+    # 충돌 대상물 등록
+    for zombie in zombies:
+        add_collision_pair('zombie:ball', zombie, None)
 
 def finish():
     game_world.clear()

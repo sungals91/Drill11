@@ -159,7 +159,8 @@ class Boy:
         if self.ball_count > 0:
             self.ball_count -= 1
             ball = Ball(self.x, self.y, self.face_dir*10)
-            game_world.add_object(ball)
+            game_world.add_object(ball, 1)
+            game_world.add_collision_pair('zombie:ball', None, ball)
 
     def get_bb(self):
         # fill here
